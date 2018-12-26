@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+            h2, p{
+              margin: 10px 0;
+            }
+            header{
+              margin-bottom: 40px;
+            }
+          </style>
+        
+
+    <title>Budgeted</title>
+</head>
+<body class="amber darken-3 ">
+
+    <header class="amber darken-4 section">
+        <h2 class="center white-text"> Budgeted</h2>
+        <p class="flow-text white-text center text-lighten-2">Monthly Money Tracker for the minimalist.</p>
+    </header>
+
+    <div class="container section">
+            <div class="row">
+              <div class="col s12 m6">
+                <form class="card z-depth-0">
+                  <div class="card-content">
+                    <span class="card-title indigo-text">Add Item:</span>
+                    <div class="input-field">
+                      <input type="text" id="name">
+                      <label for="name">Item Name</label>
+                    </div>
+                    <div class="input-field">
+                      <input type="text" id="cost">
+                      <label for="cost">Item Cost (£)</label>
+                    </div>
+                    <div class="input-field center">
+                      <button class="btn-large pink white-text">Add Item</button>
+                    </div>
+                    <div class="input-field center">
+                      <p id="error" class="red-text"></p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="col s12 m5 push-m1">
+                <div class="canvas"></div>
+              </div>
+            </div>
+          </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBpVES89usgOOabl8WeLDTyHbBTyJZnmKk",
+        authDomain: "d3-firebase-b9ce5.firebaseapp.com",
+        databaseURL: "https://d3-firebase-b9ce5.firebaseio.com",
+        projectId: "d3-firebase-b9ce5",
+        storageBucket: "d3-firebase-b9ce5.appspot.com",
+        messagingSenderId: "72076554594"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.firestore();
+    const settings = { timestampsInSnapshots: true };
+    db.settings(settings)
+    </script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="index.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>

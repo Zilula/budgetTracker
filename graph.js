@@ -17,8 +17,14 @@ const arcPath = d3.arc()
     .outerRadius(dims.radius)
     .innerRadius(dims.radius/2);
 
+const color = d3.scaleOrdinal(d3['schemeDark2'])
+
 // update function 
 const update = (data) => {
+
+    color.domain(data.map(d => d.name));
+
+
     // join enchanced(pie) data to path elements
     const paths = graph.selectAll('path')
         .data(pie(data));
@@ -29,6 +35,7 @@ const update = (data) => {
                 .attr('d', arcPath)
                 .attr('stroke', '#fff')
                 .attr('stroke-width', '1')
+                .attr('fill', d => color(d.data.name))
 
 }
 

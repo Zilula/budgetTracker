@@ -28,6 +28,17 @@ const update = (data) => {
     // join enchanced(pie) data to path elements
     const paths = graph.selectAll('path')
         .data(pie(data));
+
+        //removes uneeded documents and paths from DOM to update
+        
+        paths.exit().remove();
+
+        paths
+            .attr('class', 'acr')
+            .attr('d', arcPath)
+            .attr('stroke', '#fff')
+            .attr('stroke-width', '1')
+            .attr('fill', d => color(d.data.name));
     
         paths.enter()
             .append('path')
